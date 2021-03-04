@@ -17,7 +17,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-   
+   <?php $i=0; ?>
     <table class="table table-bordered">
         <tr>
             <th>No</th>
@@ -50,8 +50,13 @@
             </td>
         </tr>
         @endforeach
+       <tr>
+       <th colspan="4" style="text-align:center">Total Amount : </th>
+       <th  style="text-align:center"> {{ number_format($totalAmount,2) }}</th>
+       <th></th>
+       </tr>
     </table>
   
-    {!! $products->links() !!}
+    
       
 @endsection

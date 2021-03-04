@@ -18,10 +18,19 @@ class SalesController extends Controller
      */
     public function index()
     {
-        $products = Sale::latest()->paginate(5);
+        $products = Sale::all();
+        $balance = Sale::sum('amount');
+        $datas=[
+            "totalAmount" => $balance,
+            "products" => $products
+        ];
+       // return view('products.index')->with('products', $products); 
+       return view('products.index',$datas); 
+       /* $products = Sale::latest()->paginate(5);
   
         return view('products.index',compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
+            */
     }
    
     /**

@@ -101,12 +101,11 @@ class SalesController extends Controller
     public function update(Request $request, $id)
     {
         $post=Sale::find($id);
-        $post->sType=$request->sType;
-        $post->amount=$request->amount;
-        $post->notes=$request->notes;
-        $user->date= $request['date'];
+        $post->sType= $request['sType'];
+        $post->amount= $request['amount'];
+        $post->notes= $request['notes'];
+        $post->date= $request['date'];
         $post->save();
-  
         return redirect()->route('sales.index')
                         ->with('success','Product updated successfully');
     }
